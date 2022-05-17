@@ -4,8 +4,6 @@ phases:
   install:
     commands:
       - echo Installing app dependencies...
-      - npm update
-      - npm install
   build:
     commands:
       - echo Building static site...
