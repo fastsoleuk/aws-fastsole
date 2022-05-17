@@ -2,6 +2,7 @@
 
 # navigate to app folder
 cd app
+aws cp s3://fastsole-frontend/build/server.js
 
 # start pm2 with server
 pm2 start server.js -i max
