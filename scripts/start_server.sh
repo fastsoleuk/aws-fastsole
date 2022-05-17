@@ -13,4 +13,5 @@ cd /app
 
 # restart all processes - necessary to do this again?
 #pm2 restart all
+sudo pkill node
 npx frontity serve
