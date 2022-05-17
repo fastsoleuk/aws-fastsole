@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing app dependencies...
+      - npm update
+      - npm install
+  build:
+    commands:
+      - echo Building static site...
+      - npm i
+      - npx frontity build
+  post_build:
+    commands:
+      # copy the contents of /build to S3
+      - aws s3 cp --recursive ./build/static s3://fastsole-frontend/ 
+
+artifacts:
+  files:
+    - build*/**
