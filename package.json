@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "frontity dev",
-    "build": "frontity build --public-path https://digital-live.vercel.app/static",
+    "build": "frontity build --public-path https://cdn.fastsole.co.uk/",
     "serve": "frontity serve"
   },
   "prettier": {},
