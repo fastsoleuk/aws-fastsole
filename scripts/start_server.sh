@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # navigate to app folder
-cd /app/build
+cd /app
 
 # start pm2 with server
 #pm2 start server.js -i max
