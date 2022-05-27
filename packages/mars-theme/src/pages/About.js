@@ -179,11 +179,10 @@ const About = ({ state, libraries, actions }) => {
                     fontSize="sm"
                     fontWeight="bold"
                   >
-                    Fastsole Private Ltd
+                    Fastsole Private Ltd.
                   </Text>
                   <Text pl="1" color={"#3E485D"} fontSize="sm">
-                    16 Windermere Court 22 Trinity Trees, Eastbourne United
-                    Kingdom BN21 3LE
+                  16 Windermere Court 22 Trinity Trees Eastbourne United Kingdom BN21 3LE
                   </Text>
                 </Stack>
               </Flex>
@@ -196,10 +195,10 @@ const About = ({ state, libraries, actions }) => {
                 />
 
                 <Text pl="1" color={"#3E485D"} fontSize="sm">
-                  fastsole@gmail.com
+                info@fastsole.co.uk
                 </Text>
               </Flex>
-              <Flex mb="4">
+              {/* <Flex mb="4">
                 <Icon
                   as={FaPhoneAlt}
                   boxSize="3"
@@ -209,7 +208,7 @@ const About = ({ state, libraries, actions }) => {
                 <Text pl="1" color={"#3E485D"} fontSize="sm">
                   +91000098989
                 </Text>
-              </Flex>
+              </Flex> */}
             </Box>
 
             <Text color="#3E485D" fontSize="sm" mt="4">
@@ -247,7 +246,7 @@ const About = ({ state, libraries, actions }) => {
                           fontSize="sm"
                           fontWeight="bold"
                         >
-                          What can I expect from FastSole?{" "}
+                          What can I expect from FastSole?
                         </Box>
                         {isExpanded ? (
                           <Circle
@@ -271,9 +270,7 @@ const About = ({ state, libraries, actions }) => {
                       </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4} color="#666666" fontSize="sm">
-                      You can expect updated confirmed release time, stockists
-                      and direct links to all the upcoming and hot sneaker
-                      releases.
+                    You can expect updated confirmed release time, stockists and direct links to all the upcoming and hot sneaker releases.
                     </AccordionPanel>
                   </>
                 )}
@@ -299,7 +296,7 @@ const About = ({ state, libraries, actions }) => {
                           fontSize="sm"
                           fontWeight="bold"
                         >
-                          What can I expect from FastSole?{" "}
+                          Do you sell sneakers?
                         </Box>
                         {isExpanded ? (
                           <Circle
@@ -323,9 +320,7 @@ const About = ({ state, libraries, actions }) => {
                       </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4} color="#666666" fontSize="sm">
-                      You can expect updated confirmed release time, stockists
-                      and direct links to all the upcoming and hot sneaker
-                      releases.
+                    We don’t sell sneakers, we provide information with direct links to upcoming and released sneakers.
                     </AccordionPanel>
                   </>
                 )}
@@ -351,7 +346,7 @@ const About = ({ state, libraries, actions }) => {
                           fontSize="sm"
                           fontWeight="bold"
                         >
-                          What can I expect from FastSole?{" "}
+                          Can you find a sneaker I’m looking for?
                         </Box>
                         {isExpanded ? (
                           <Circle
@@ -375,9 +370,7 @@ const About = ({ state, libraries, actions }) => {
                       </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4} color="#666666" fontSize="sm">
-                      You can expect updated confirmed release time, stockists
-                      and direct links to all the upcoming and hot sneaker
-                      releases.
+                    Our team will find any sneaker if it has been released in Europe and is currently available. Just mail us: <a href="mailto: info@fastsole.co.uk">info@fastsole.co.uk</a> or give us a shout on our social media pages.
                     </AccordionPanel>
                   </>
                 )}

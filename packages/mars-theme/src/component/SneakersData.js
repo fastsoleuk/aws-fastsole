@@ -112,7 +112,7 @@ const SneakersData = ({ state, actions, libraries, itemId }) => {
 
     setchoosedate(comparedate);
     setCurrentPage(1);
-    console.log("finaldateeeee", comparedate);
+    //console.log("finaldateeeee", comparedate);
   };
   
   // end

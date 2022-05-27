@@ -36,7 +36,7 @@ const BrandList = ({ state, libraries, actions }) => {
     {
       slug: "/sneaker-release-dates/brands/new-balance",
       image:
-        "https://w7.pngwing.com/pngs/586/211/png-transparent-new-balance-logo-sneakers-clothing-sneakers-miscellaneous-angle-text.png",
+        "https://fastsole.co.uk/wp-content/uploads/2022/05/balanace.png",
     },
   ];
   // const slug = `/sneaker-release-dates/brands/${result}`;

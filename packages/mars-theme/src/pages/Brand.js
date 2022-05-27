@@ -225,7 +225,6 @@ const Brand = ({ state, libraries, actions }) => {
                       px={2}
                       py={1}
                       borderRadius="md"
-                      borderRadius="md"
                       fontSize="13px"
                     >
                       {item.termName}

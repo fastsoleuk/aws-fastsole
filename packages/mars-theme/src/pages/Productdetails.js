@@ -27,6 +27,7 @@ const ViewAllMobile = loadable(() => import("../component/ViewAllMobile"));
 const CardDetails = loadable(() => import("../component/CardDetails"));
 // const Breadcrumb = loadable(() => import("../component/Breadcrumb"));
 import Breadcrumb from "../component/Breadcrumb";
+import ErrorPage from "../pages/ErrorPage";
 import {
   FaCheckCircle,
   FaChevronDown,
@@ -40,7 +41,7 @@ const Productdetails = ({ state, libraries, actions }) => {
   const [isMobile] = useMediaQuery("(max-width: 400px)");
   const pageData = state.source.get(state.router.link);
   const seoData = pageData.schemaData && pageData.schemaData;
-  //console.log("chekcec", pageData);
+  console.log("chekcec", pageData);
 
   // all custom state
 
@@ -415,7 +416,11 @@ const Productdetails = ({ state, libraries, actions }) => {
         <div></div>
       )}
 
-      {seoData.main && (
+      {/* {seoData === undefined && seoData === null ? <ErrorPage when={pageData.isError}/> : 'dsa'} */}
+
+     
+      {/* {seoData.main.title == null ? <ErrorPage when={pageData.isError}/> :  */}
+      {seoData.main.title == null ? <ErrorPage when={pageData.isError}/> : 
         <Box mx={{ base: "6", md: "16", lg: "40" }}>
           {/* product image slider for mobile */}
           <Box textAlign="center" mt="5" mb="5">
@@ -661,7 +666,7 @@ const Productdetails = ({ state, libraries, actions }) => {
               {/* for mobile  */}
               <Box display={{ base: "block", md: "none" }}>
                 {seoData.main.content && (
-                  <Text color="#666666" className="product-details">
+                  <Box color="#666666" className="product-details">
                     <Html2React
                       html={
                         show
@@ -669,7 +674,7 @@ const Productdetails = ({ state, libraries, actions }) => {
                           : seoData.main.content.substring(0, 400)
                       }
                     />
-                  </Text>
+                  </Box>
                 )}
 
                 {seoData.main.content && seoData.main.content.length > 400 && (
@@ -707,14 +712,14 @@ const Productdetails = ({ state, libraries, actions }) => {
               {/* for large devices */}
               <Box display={{ base: "none", md: "block" }}>
                 {seoData.main.content && (
-                  <Text
+                  <Box
                     color="#666666"
                     lineHeight={"26px"}
                     className="product-details detpage"
                   >
 
                     <Html2React html={seoData.main.content} />
-                  </Text>
+                  </Box>
                 )}
               </Box>
 
@@ -815,7 +820,10 @@ const Productdetails = ({ state, libraries, actions }) => {
             </Box>
           </Box>
         </Box>
-      )}
+      }
+      
+
+
     </>
   );
 };

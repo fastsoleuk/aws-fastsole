@@ -491,7 +491,7 @@ const Commondata2 = ({ state, actions, libraries }) => {
 
         <Stack
           id="filter-header"
-          // {isOpen == true ? "abc" : "filter-header"}
+        // {isOpen == true ? "abc" : "filter-header"}
         >
           <Flex
             justifyContent={{
@@ -510,7 +510,7 @@ const Commondata2 = ({ state, actions, libraries }) => {
               w={100}
               variant="outline"
               onChange={(event) => shortDropDown(event.target.value)}
-              // display={{ base: "none", md: "none", lg: "block" }}
+            // display={{ base: "none", md: "none", lg: "block" }}
             >
               <option value="priceLowToHigh">Price low to high</option>
               <option value="priceHighToLow">High to low</option>
@@ -1335,7 +1335,7 @@ const Commondata2 = ({ state, actions, libraries }) => {
               <Box>
                 {!state.sneakerReleaseDates.isLoading ? (
                   (filterItems && filterItems.length === 0) ||
-                  filterItems === undefined ? (
+                    filterItems === undefined ? (
                     <Center>
                       <NoProduct />
                     </Center>
@@ -1613,8 +1613,8 @@ const Commondata2 = ({ state, actions, libraries }) => {
 
                 {/* loadmore icon */}
                 {(filterItems && filterItems.length === 0) ||
-                filterItems === undefined ||
-                filterItems === "" ? (
+                  filterItems === undefined ||
+                  filterItems === "" ? (
                   <div></div>
                 ) : (
                   <Box display={{ base: "block", md: "none" }}>
@@ -1648,8 +1648,8 @@ const Commondata2 = ({ state, actions, libraries }) => {
 
                 {/* Pagination start */}
                 {(filterItems && filterItems.length === 0) ||
-                filterItems === undefined ||
-                filterItems === "" ? (
+                  filterItems === undefined ||
+                  filterItems === "" ? (
                   <div></div>
                 ) : (
                   <Box
