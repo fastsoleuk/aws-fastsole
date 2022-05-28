@@ -80,7 +80,7 @@ function Home({ state, actions, libraries }) {
   // state.source.data["/"];
   // state.source.get(state.router.link);
 
-  const schemaData = pageData.schemaData && pageData.schemaData;
+  //const schemaData = pageData.schemaData && pageData.schemaData;
 
   {
     // schemaData && console.log("chekcechema=", schemaData.schema);
