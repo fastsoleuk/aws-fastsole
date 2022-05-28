@@ -465,15 +465,15 @@ const marsTheme = {
           // priority: 100,
           pattern: "/home/",
           func: async ({ state, link, params, libraries }) => {
-            // console.log("checking step = ", link);
+            console.log("checking step_468 = ", link);
             const schema = state.source.data["/"];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-Home/`,
             });
-            console.log("scheme-home-aureate", response);
-            //aureate_console.log("checking step = ", "home");
+            console.log("scheme-home-aureate_473", response);
+            console.log("checking step_474 = ", "home");
             const schemaData = await response.json();
-            console.log("startdata", schemaData);
+            console.log("startdata_476", schemaData);
 
             Object.assign(state.source.data["/"], {
               schemaData: schemaData,
