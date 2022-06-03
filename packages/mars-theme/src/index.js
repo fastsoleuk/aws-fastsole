@@ -465,15 +465,15 @@ const marsTheme = {
           // priority: 100,
           pattern: "/home/",
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_468 = ", link);
+            //console.log("checking step_468 = ", link);
             const schema = state.source.data["/"];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-Home/`,
             });
-            console.log("scheme-home-aureate_473", response);
-            console.log("checking step_474 = ", "home");
+            //console.log("scheme-home-aureate_473", response);
+            //console.log("checking step_474 = ", "home");
             const schemaData = await response.json();
-            console.log("startdata_476", schemaData);
+            //console.log("startdata_476", schemaData);
 
             Object.assign(state.source.data["/"], {
               schemaData: schemaData,
@@ -489,20 +489,20 @@ const marsTheme = {
           pattern: "/sneaker-news/",
 
           func: async ({ state, link, params, libraries }) => {
-            console.log("checkingnews_492 = ", 1);
+            //console.log("checkingnews_492 = ", 1);
             // const schema = state.source.data["/sneaker-news/"];
             // const response = await libraries.source.api.get({
             //   endpoint: `/wl/v1/schema-news-all/`,
             // });
 
-             console.log("checkingnews_498 = ", 2);
+             //console.log("checkingnews_498 = ", 2);
             // const schemaData = await response.json();
-             console.log("startdata_500", schemaData);
+             //console.log("startdata_500", schemaData);
             schemaData &&
               Object.assign(schema, {
                 schemaData: "schemaData",
               });
-            console.log("checking step news_505 = ", 3);
+            //console.log("checking step news_505 = ", 3);
           },
         },
 
@@ -514,7 +514,7 @@ const marsTheme = {
           priority: 3,
           pattern: "/sneaker-release-dates/",
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_517 = ", 1);
+            //console.log("checking step_517 = ", 1);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-brands-release/`,
@@ -545,13 +545,13 @@ const marsTheme = {
           priority: 4,
           pattern: "/sneaker-release-dates/status/on-focus/",
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_548 = ", 1);
+            //console.log("checking step_548 = ", 1);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-onfocus/`,
             });
 
-            console.log("checking step_554 = ", 2);
+            //console.log("checking step_554 = ", 2);
             const schemaData = await response.json();
 
             schemaData &&
@@ -571,13 +571,13 @@ const marsTheme = {
           priority: 5,
           pattern: "/sneaker-release-dates/status/coming-soon/",
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_574 = ", 1);
+            //console.log("checking step_574 = ", 1);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-comming-soon/`,
             });
 
-            console.log("checking step_580 = ", 2);
+            //console.log("checking step_580 = ", 2);
             const schemaData = await response.json();
 
             schemaData &&
@@ -585,7 +585,7 @@ const marsTheme = {
                 comingSoonProduct: true,
                 schemaData: schemaData,
               });
-            console.log("checking step_588 = ", 3);
+            //console.log("checking step_588 = ", 3);
           },
         },
 
@@ -600,21 +600,21 @@ const marsTheme = {
             //   id: params.slug,
             // };
 
-            console.log("checking step_603 = ", params.slug);
+            //console.log("checking step_603 = ", params.slug);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-brands-all/${params.slug}/`,
               // `/wl/v1/schema-brands/`,
             });
 
-            console.log("checking step_610 = ", 2);
+            //console.log("checking step_610 = ", 2);
             const schemaData = await response.json();
-            console.log("startdata_612", schemaData);
+            //console.log("startdata_612", schemaData);
             // schemaData &&
             //   Object.assign(schema, {
             //     seodata: schemaData,
             //   });
-            console.log("checking step_6172 = ", 3);
+            //console.log("checking step_6172 = ", 3);
             state.source.data[link] = {
               isMasterComponent: true,
               id: params.slug,
@@ -627,14 +627,14 @@ const marsTheme = {
           // pattern: "/isbrand/",
           priority: 7,
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_630 = ", 1);
+            //console.log("checking step_630 = ", 1);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-brands/`,
               // `/wl/v1/schema-brands-all/air-max/`,
             });
 
-            console.log("checking step_637 = ", 2);
+            //console.log("checking step_637 = ", 2);
             const schemaData = await response.json();
             // state.source.data[link] = {
             //   isAllBrand: true,
@@ -665,20 +665,20 @@ const marsTheme = {
           priority: 1,
           pattern: "/sneaker-release-dates/brands/:slug/:slug/",
           func: async ({ state, link, params, libraries }) => {
-            console.log("checking step_668 = ", 1);
+            //console.log("checking step_668 = ", 1);
             const schema = state.source.data[link];
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-brands/${link}`,
             });
 
-            console.log("checking step_674 = ", link);
+            //console.log("checking step_674 = ", link);
             const schemaData = await response.json();
             // console.log("startdata", schemaData);
             // schemaData &&
             //   Object.assign(schema, {
             //     seodata: schemaData,
             //   });
-            console.log("checking step_681 = ", 3);
+            //console.log("checking step_681 = ", 3);
             state.source.data[link] = {
               isBuyFrom: true,
               id: params.slug,
@@ -693,7 +693,7 @@ const marsTheme = {
           func: async ({ state, link, params, libraries }) => {
             const schema = await state.source.data[link];
             const slug = schema && schema.query.s;
-            console.log("monu sir aa gye_696", schema);
+            //console.log("monu sir aa gye_696", schema);
             const response = await libraries.source.api.get({
               endpoint: `/wl/v1/schema-search/${slug}`,
             });

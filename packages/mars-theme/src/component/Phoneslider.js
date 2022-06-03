@@ -47,8 +47,8 @@ function Phoneslider({ state, props, libraries }) {
             // <Link link={item.link}>
             <Box mx="3" rounded="xl" border="1px solid #D8DEE7">
               <Link link={item.link}>
-                <Box flexShrink={0}>
-                  <ImageViewFeatured id={item.featured_media} />
+                <Box flexShrink={0} className="newsMobile">
+                  <Image src={item.fimg_url} loading="lazy" />
                 </Box>
               </Link>
               <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} m="4">

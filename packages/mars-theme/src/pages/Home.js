@@ -36,6 +36,7 @@ import FeaturedMedia from "../Utils/FeaturedMedia";
 import ImageView from "../Utils/ImageView";
 import { motion } from "framer-motion";
 import { css } from "frontity";
+// import Slider1 from "../component/slider/slider1";
 // import Link from "@frontity/components/link";
 //import ImageViewFeatured from "../../src/Utils/ImageViewFeatured";
 //import BrandList from "../component/BrandList";
@@ -52,7 +53,7 @@ const FooterComponent = loadable(() => import('../component/FooterComponent'))
 const ViewAllbtn = loadable(() => import('../component/ViewAllbtn'))
 const ViewAllMobile = loadable(() => import('../component/ViewAllMobile'))
 
-const ImageViewFeatured = loadable(() => import('../../src/Utils/ImageViewFeatured'))
+//const ImageViewFeatured = loadable(() => import('../../src/Utils/ImageViewFeatured'))
 const HomeMobileBanner = loadable(() => import('../component/HomeMobileBanner'))
 
 
@@ -80,38 +81,52 @@ function Home({ state, actions, libraries }) {
   // state.source.data["/"];
   // state.source.get(state.router.link);
 
-  //const schemaData = pageData.schemaData && pageData.schemaData;
+  const schemaData = pageData.schemaData && pageData.schemaData;
 
   {
     // schemaData && console.log("chekcechema=", schemaData.schema);
   }
   const [load, setLoad] = useState(true);
-
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
     }, 50);
   }, []);
 
+
+  const fetchPosts = async () => {
+    const res = await fetch("https://fastsole.co.uk/wp-json/wp/v2/posts");
+    const data = await res.json();
+    try {
+      setPosts(data);
+      //console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+
   return (
     <>
       <Head>
         <meta
           data-rh="true"
-          data-rh="true"
           name="thumbnail"
-          content="https://dev2.fastsole.co.uk/wp-content/uploads/2016/09/FastSole-Fev-01.png"
+          content="https://fastsole.co.uk/wp-content/uploads/2016/09/FastSole-Fev-01.png"
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           name="viewport"
           content="width=device-width, initial-scale=1"
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           property="fb:app_id"
           content=""
@@ -120,13 +135,11 @@ function Home({ state, actions, libraries }) {
         <meta data-rh="true" data-rh="true" charset="utf-8" data-reactroot="" />
         <meta
           data-rh="true"
-          data-rh="true"
           property="og:locale"
           content="en_GB"
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           property="og:type"
           content="website"
@@ -134,13 +147,11 @@ function Home({ state, actions, libraries }) {
         />
         <meta
           data-rh="true"
-          data-rh="true"
           property="og:site_name"
           content="Fastsole"
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           name="twitter:card"
           content="summary"
@@ -148,13 +159,11 @@ function Home({ state, actions, libraries }) {
         />
         <meta
           data-rh="true"
-          data-rh="true"
           name="twitter:site"
           content="@Fastsole"
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           name="twitter:creator"
           content="@Fastsole"
@@ -162,13 +171,11 @@ function Home({ state, actions, libraries }) {
         />
         <meta
           data-rh="true"
-          data-rh="true"
           name="description"
           content="Find the latest sneaker news, release dates, prices and where to buy. Fastsole keeps you up to date with the latest footwear rumours and releases."
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           property="og:title"
           content="Sneaker Release Dates 2022 | Sneaker News UK 2022 | Fastsole "
@@ -176,13 +183,11 @@ function Home({ state, actions, libraries }) {
         />
         <meta
           data-rh="true"
-          data-rh="true"
           property="og:description"
           content="Find the latest sneaker news, release dates, prices and where to buy. Fastsole keeps you up to date with the latest footwear rumours and releases."
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           property="og:url"
           content="Fastsole"
@@ -190,13 +195,11 @@ function Home({ state, actions, libraries }) {
         />
         <meta
           data-rh="true"
-          data-rh="true"
           name="twitter:title"
           content="Sneaker Release Dates 2022 | Sneaker News UK 2022 | Fastsole "
           data-reactroot=""
         />
         <meta
-          data-rh="true"
           data-rh="true"
           name="twitter:description"
           content="Find the latest sneaker news, release dates, prices and where to buy. Fastsole keeps you up to date with the latest footwear rumours and releases."
@@ -204,14 +207,14 @@ function Home({ state, actions, libraries }) {
         />
 
         <title data-rh="true">
-          Sneaker Release Dates 2022 | Sneaker News UK 2022 | Fastsole{" "}
+          Sneaker Release Dates 2022 | Sneaker News UK 2022 | Fastsole
         </title>
       </Head>
       <script data-rh="true" type="application/ld+json">
         {`{
           "@context": "https://schema.org",
           "@type": "Organization",
-          url: "https://dev2.fastsole.co.uk",
+          url: "https://fastsole.co.uk",
           sameAs: [
             "https://www.facebook.com/fastsole/",
             "https://www.instagram.com/fastsole/",
@@ -246,9 +249,9 @@ function Home({ state, actions, libraries }) {
               contactType: "Sales and advertising",
             },
           ],
-          "@id": "https://dev2.fastsole.co.uk/#organization",
+          "@id": "https://fastsole.co.uk/#organization",
           name: "Fast sole",
-          logo: "https://dev2.fastsole.co.uk/wp-content/themes/fs/img/logo.png",
+          logo: "https://fastsole.co.uk/wp-content/themes/fs/img/logo.png",
         }`}
       </script>
 
@@ -259,17 +262,17 @@ function Home({ state, actions, libraries }) {
             textColor="white"
             gap={4}
           >
-            {data.slice(0, 1).map(({ type, id }) => {
-              const item = state.source[type][id];
 
+            {posts.slice(0, 1).map((post, index) => {
               return (
-                item && (
-                  <Box>
-                    <Link link={item.link}>
-                      <ImageViewFeatured id={item.featured_media} />
+                post && (
+                  <Box key={index}>
+                    <Link link={post.link}>
+                      <Image src={post.fimg_url} loading="lazy" className="newhomeImage" />
+                      {/* <ImageViewFeatured id={item.featured_media} /> */}
                     </Link>
 
-                    <Link link={item.link}>
+                    <Link link={post.link}>
                       <Heading
                         as="h3"
                         mt={6}
@@ -281,7 +284,7 @@ function Home({ state, actions, libraries }) {
                         lineHeight="normal"
                         mb="10px"
                       >
-                        {<Html2React html={item.title.rendered} />}
+                        <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                       </Heading>
                     </Link>
                     <Text
@@ -291,11 +294,11 @@ function Home({ state, actions, libraries }) {
                       fontSize={{ base: "md", md: "md", lg: "sm", xl: "md" }}
                     >
                       <Html2React
-                        html={`${item.excerpt.rendered.substring(0, 100)}  ...`}
+                        html={`${post.excerpt.rendered.substring(0, 100)}  ...`}
                       />
                     </Text>
                     <Box w="max-content">
-                      <Link link={item.link}>
+                      <Link link={post.link}>
                         <Text color="red">
                           Read more
                           <Icon as={FaChevronRight} boxSize="2" color={"red"} />
@@ -304,15 +307,16 @@ function Home({ state, actions, libraries }) {
                     </Box>
                   </Box>
                 )
-              );
+              )
             })}
+
             <Box display="flex">
               <VStack alignItems="normal" justifyContent={"space-between"}>
-                {data.slice(2, 5).map(({ type, id }) => {
-                  const item = state.source[type][id];
-                  //aureate_console.log("myhomepage", item);
+                {/* {data.slice(1, 4).map(({ type, id }) => { */}
+                {posts.slice(1, 4).map((post, index) => {
+                  //const item = state.source[type][id];
 
-                  if (item.status == "instock") {
+                  if (post.status == "instock") {
                     var status = (
                       <Text
                         color="#3EB75E"
@@ -329,7 +333,7 @@ function Home({ state, actions, libraries }) {
                         In Stock
                       </Text>
                     );
-                  } else if (item.status == "coming_soon") {
+                  } else if (post.status == "coming_soon") {
                     var status = (
                       <Text color="#FF6600" fontSize="xs" lineHeight="22px">
                         <Icon
@@ -341,7 +345,7 @@ function Home({ state, actions, libraries }) {
                         Coming Soon
                       </Text>
                     );
-                  } else if (item.status == "publish") {
+                  } else if (post.status == "publish") {
                     var status = (
                       <Text
                         color="#3EB75E"
@@ -358,7 +362,7 @@ function Home({ state, actions, libraries }) {
                         Publish
                       </Text>
                     );
-                  } else if (item.status == "restock") {
+                  } else if (post.status == "restock") {
                     var status = (
                       <Text color="#FF6600" fontSize="xs" lineHeight="22px">
                         <Icon
@@ -370,7 +374,7 @@ function Home({ state, actions, libraries }) {
                         Re Stock
                       </Text>
                     );
-                  } else if (item.status == "delayed") {
+                  } else if (post.status == "delayed") {
                     var status = (
                       <Text color="#FF6600" fontSize="xs" lineHeight="22px">
                         <Icon
@@ -382,7 +386,7 @@ function Home({ state, actions, libraries }) {
                         Delayed
                       </Text>
                     );
-                  } else if (item.status == "sold_out") {
+                  } else if (post.status == "sold_out") {
                     var status = (
                       <Text color="#FF6600" fontSize="xs" lineHeight="22px">
                         <Icon
@@ -394,7 +398,7 @@ function Home({ state, actions, libraries }) {
                         Sold Out
                       </Text>
                     );
-                  } else if (item.status == "stockist_sold_out") {
+                  } else if (post.status == "stockist_sold_out") {
                     var status = (
                       <Text color="#FF6600" fontSize="xs" lineHeight="22px">
                         <Icon
@@ -439,13 +443,13 @@ function Home({ state, actions, libraries }) {
                         borderRadius={"5px"}
                         border={"1px solid #C2C8D6"}
                       >
-                        <Link link={item.link} id="img-div2nd-height">
-                          {" "}
-                          <ImageViewFeatured id={item.featured_media} />
+                        <Link link={post.link} id="img-div2nd-height">
+                          <Image src={post.fimg_url} loading="lazy" className="newhomeImage" />
+                          {/* <Image src={item.yoast_head_json.og_image[0].url} alt={item.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
                         </Link>
                       </Box>
                       <Box mt={{ base: 4, md: 0 }} ml={{ md: 4 }}>
-                        <Link link={item.link}>
+                        <Link link={post.link}>
                           <Heading
                             as="h3"
                             display="block"
@@ -459,11 +463,10 @@ function Home({ state, actions, libraries }) {
                             lineHeight="normal"
                             noOfLines={2}
                           >
-                            {<Html2React html={item.title.rendered} />}
+                            {<Html2React html={post.title.rendered} />}
                           </Heading>
                         </Link>
                         <Box>
-                          {" "}
                           <Text
                             as="span"
                             color="#3E485D"
@@ -479,7 +482,7 @@ function Home({ state, actions, libraries }) {
                           >
                             {
                               <Html2React
-                                html={`${item.excerpt.rendered.substring(
+                                html={`${post.excerpt.rendered.substring(
                                   0,
                                   50
                                 )}  ...`}
@@ -490,9 +493,9 @@ function Home({ state, actions, libraries }) {
 
                         <Flex mt="2px" alignItems="center">
                           <Box w="max-content">
-                            <Link link={item.link}>
+                            <Link link={post.link}>
                               <Text color="red">
-                                Read more{" "}
+                                Read more
                                 <Icon
                                   as={FaChevronRight}
                                   boxSize="2"
@@ -514,7 +517,7 @@ function Home({ state, actions, libraries }) {
         </Stack>
 
         <Stack py={6}>
-          <HomeMobileBanner props={data} />
+          <HomeMobileBanner props={posts} />
         </Stack>
 
         {/* <Divider /> */}
@@ -662,7 +665,6 @@ function Home({ state, actions, libraries }) {
               color={"#3E485D"}
               fontWeight="bold"
               fontStyle="normal"
-              color={"#3E485D"}
               lineHeight="normal"
             >
               Latest News
@@ -676,17 +678,19 @@ function Home({ state, actions, libraries }) {
             textColor="white"
             gap={4}
           >
-            {data.slice(0, 1).map(({ type, id }) => {
-              const item = state.source[type][id];
+            {posts.slice(0, 1).map((post, index) => {
+              //const item = state.source[type][id];
 
               return (
-                item && (
-                  <Box>
-                    <Link link={item.link}>
-                      <ImageViewFeatured id={item.featured_media} />
+                post && (
+                  <Box key={index}>
+                    <Link link={post.link}>
+                      {/* <ImageViewFeatured id={item.featured_media} /> */}
+                      <Image src={post.fimg_url} loading="lazy" className="newhomeImage" />
+                      {/* <Image src={item.yoast_head_json.og_image[0].url} alt={item.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
                     </Link>
 
-                    <Link link={item.link}>
+                    <Link link={post.link}>
                       <Heading
                         as="h3"
                         mt={6}
@@ -698,7 +702,7 @@ function Home({ state, actions, libraries }) {
                         lineHeight="normal"
                         mb="10px"
                       >
-                        {<Html2React html={item.title.rendered} />}
+                        {<Html2React html={post.title.rendered} />}
                       </Heading>
                     </Link>
                     <Text
@@ -708,11 +712,11 @@ function Home({ state, actions, libraries }) {
                       fontSize={{ base: "md", md: "md", lg: "sm", xl: "md" }}
                     >
                       <Html2React
-                        html={`${item.excerpt.rendered.substring(0, 100)}  ...`}
+                        html={`${post.excerpt.rendered.substring(0, 100)}  ...`}
                       />
                     </Text>
                     <Box w="max-content">
-                      <Link link={item.link}>
+                      <Link link={post.link}>
                         <Text color="red">
                           Read more
                           <Icon as={FaChevronRight} boxSize="2" color={"red"} />
@@ -726,15 +730,16 @@ function Home({ state, actions, libraries }) {
 
             <Box display="flex">
               <VStack alignItems="normal" justifyContent={"space-between"}>
-              {data.slice(2, 5).map(({ type, id }) => {
-                const items = state.source[type][id];
-                const date = dayjs(items.date_gmt).format("DD MMMM YYYY");
-                return (
+                {posts.slice(1, 4).map((post, index) => {
+                  //const items = state.source[type][id];
+                  const date = dayjs(post.date_gmt).format("DD MMMM YYYY");
+                  return (
                     <Box
                       display={{ md: "flex" }}
                       // mb="5px "
                       alignItems="center"
                       h={"100%"}
+                      key={index}
                     >
                       <Box
                         flexShrink={0}
@@ -748,13 +753,14 @@ function Home({ state, actions, libraries }) {
                         borderRadius={"5px"}
                         border={"1px solid #C2C8D6"}
                       >
-                        <Link link={items.link} id="img-div2nd-height">
-                          {" "}
-                          <ImageViewFeatured id={items.featured_media} />
+                        <Link link={post.link} id="img-div2nd-height">
+                          {/* <ImageViewFeatured id={items.featured_media} /> */}
+                          <Image src={post.fimg_url} loading="lazy" className="newhomeImage" />
+                          {/* <Image src={items.yoast_head_json.og_image[0].url} alt={items.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
                         </Link>
                       </Box>
                       <Box mt={{ base: 4, md: 0 }} ml={{ md: 4 }}>
-                        <Link link={items.link}>
+                        <Link link={post.link}>
                           <Heading
                             as="h3"
                             display="block"
@@ -768,11 +774,10 @@ function Home({ state, actions, libraries }) {
                             lineHeight="normal"
                             noOfLines={2}
                           >
-                            {<Html2React html={items.title.rendered} />}
+                            {<Html2React html={post.title.rendered} />}
                           </Heading>
                         </Link>
                         <Box>
-                          {" "}
                           <Text
                             as="span"
                             color="#3E485D"
@@ -788,7 +793,7 @@ function Home({ state, actions, libraries }) {
                           >
                             {
                               <Html2React
-                                html={`${items.excerpt.rendered.substring(
+                                html={`${post.excerpt.rendered.substring(
                                   0,
                                   50
                                 )}  ...`}
@@ -799,9 +804,9 @@ function Home({ state, actions, libraries }) {
 
                         <Flex mt="2px" alignItems="center">
                           <Box w="max-content">
-                            <Link link={items.link}>
+                            <Link link={post.link}>
                               <Text color="red">
-                                Read more.....{" "}
+                                Read more.....
                                 <Icon
                                   as={FaChevronRight}
                                   boxSize="2"
@@ -814,7 +819,7 @@ function Home({ state, actions, libraries }) {
                       </Box>
                     </Box>
                   );
-              })}
+                })}
               </VStack>
             </Box>
           </Grid>

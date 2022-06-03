@@ -47,7 +47,7 @@ import { ArrowDownIcon, ArrowUpIcon } from "@chakra-ui/icons";
 
 
 const Phoneslider = loadable(() => import('../component/Phoneslider'))
-const ImageViewFeatured = loadable(() => import('../../src/Utils/ImageViewFeatured'))
+//const ImageViewFeatured = loadable(() => import('../../src/Utils/ImageViewFeatured'))
 const Breadcrumb = loadable(() => import('../component/Breadcrumb'))
 
 const News = ({ state, actions, libraries }) => {
@@ -281,13 +281,16 @@ const News = ({ state, actions, libraries }) => {
             >
               {data.items.slice(0, 1).map(({ type, id }) => {
                 const item = state.source[type][id];
-
                 return (
                   item && (
                     <Box>
                       <Link link={item.link}>
-                        {item.featured_media && (
-                          <ImageViewFeatured id={item.featured_media} />
+                        {item.fimg_url && (
+                          <>
+                            <Image src={item.fimg_url} loading="lazy" className="newhomeImage" />
+                            {/* <ImageViewFeatured id={item.featured_media} /> */}
+                            {/* <Image src={item.yoast_head_json.og_image[0].url} alt={item.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
+                          </>
                         )}
                       </Link>
 
@@ -327,7 +330,7 @@ const News = ({ state, actions, libraries }) => {
                       <Box w="max-content">
                         <Link link={item.link}>
                           <Text color="red">
-                            Read more{" "}
+                            Read more
                             <Icon
                               as={FaChevronRight}
                               boxSize="2"
@@ -344,7 +347,7 @@ const News = ({ state, actions, libraries }) => {
                 <VStack alignItems="normal" justifyContent={"space-between"}>
                   {data.items.slice(1, 4).map(({ type, id }) => {
                     const item = state.source[type][id];
-                    //aureate_console.log("myhomepage", item);
+                    //console.log("myhomepage", item);
 
                     if (item.status == "instock") {
                       var status = (
@@ -474,9 +477,13 @@ const News = ({ state, actions, libraries }) => {
                           border={"1px solid #C2C8D6"}
                         >
                           <Link link={item.link} id="img-div2nd-height">
-                            {" "}
-                            {item.featured_media && (
-                              <ImageViewFeatured id={item.featured_media} />
+                            {item.fimg_url && (
+                              <>
+
+                                <Image src={item.fimg_url} loading="lazy" className="newhomeImage" />
+                                {/* <ImageViewFeatured id={item.featured_media} /> */}
+                                {/* <Image src={item.yoast_head_json.og_image[0].url} alt={item.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
+                              </>
                             )}
                           </Link>
                         </Box>
@@ -499,7 +506,6 @@ const News = ({ state, actions, libraries }) => {
                             </Heading>
                           </Link>
                           <Box>
-                            {" "}
                             <Text
                               as="span"
                               color="#3E485D"
@@ -528,7 +534,7 @@ const News = ({ state, actions, libraries }) => {
                             <Box w="max-content">
                               <Link link={item.link}>
                                 <Text color="red">
-                                  Read more{" "}
+                                  Read more
                                   <Icon
                                     as={FaChevronRight}
                                     boxSize="2"
@@ -566,7 +572,7 @@ const News = ({ state, actions, libraries }) => {
                 gap={8}
                 mb="12"
               >
-                {data.items.slice(4,10).map((items) => {
+                {data.items.slice(4, 10).map((items) => {
                   const id = items.id;
                   const type = items.type;
 
@@ -574,9 +580,15 @@ const News = ({ state, actions, libraries }) => {
                   return (
                     <Link link={item.link}>
                       <Box>
-                        <Box>
-                          {item.featured_media && (
-                            <ImageViewFeatured id={item.featured_media} />
+                        <Box className="newslist">
+                          {item.fimg_url && (
+                            <>
+                              <Box className="news_imgbox">
+                                <Image src={item.fimg_url} loading="lazy" className="newhomeImage" />
+                              </Box>
+                              {/* <ImageViewFeatured id={item.featured_media} /> */}
+                              {/* <Image src={item.yoast_head_json.og_image[0].url} alt={item.title.rendered} height="auto" width="100%" max-width="100%" max-height="100%" loading="lazy" /> */}
+                            </>
                           )}
 
                           <Box mt="2">
@@ -591,7 +603,7 @@ const News = ({ state, actions, libraries }) => {
                               color={"#3E485D"}
                               noOfLines={2}
                               mt="2"
-                              // lineHeight="normal"
+                            // lineHeight="normal"
                             >
                               {<Html2React html={item.title.rendered} />}
                             </Text>

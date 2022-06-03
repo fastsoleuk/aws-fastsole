@@ -324,3 +324,32 @@ position: relative;
 .product-details ul {
   margin-left: 20px;
 }
+.newhomeImage{
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.news_imgbox {
+  position: relative;
+  padding-top: 53%;
+  overflow: hidden;
+}
+.news_imgbox .newhomeImage{
+  height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+}
+.newsMobile img{
+  height: 200px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}

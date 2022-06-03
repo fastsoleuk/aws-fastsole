@@ -36,20 +36,19 @@ const HomeMobileBanner = ({ state, actions, libraries, props }) => {
       <Carousel
         responsive={responsive}
         display={{ base: "block", md: "block", lg: "none" }}
-
       >
-        {props.slice(0, 3).map(({ type, id }) => {
-          const item = state.source[type][id];
+        {props.slice(0, 4).map((postss, i) => {
+          //const item = state.source[type][id];
           return (
-            <Link link={item.link}>
+            <Link link={postss.link}>
               <Box mx="3" rounded="xl" border="1px solid #D8DEE7">
-                <Box flexShrink={0}>
-
-                  <ImageViewFeatured id={item.featured_media} />
+                <Box flexShrink={0} className="newsMobile">
+                  <Image src={postss.fimg_url} loading="lazy" />
+                  {/* <ImageViewFeatured id={item.featured_media} /> */}
                 </Box>
                 <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} m="4">
                   <Text mb="2" color="#7887A5">
-                    {dayjs(item.date).format("DD MMMM YYYY")}
+                    {dayjs(postss.date).format("DD MMMM YYYY")}
                   </Text>
                   <Text
                     // mt={1}
@@ -64,7 +63,7 @@ const HomeMobileBanner = ({ state, actions, libraries, props }) => {
                     color={"#3E485D"}
                     pb="1"
                   >
-                    {<Html2React html={item.title.rendered} />}
+                    {<Html2React html={postss.title.rendered} />}
                   </Text>
                 </Box>
               </Box>
