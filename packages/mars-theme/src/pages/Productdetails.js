@@ -41,7 +41,7 @@ const Productdetails = ({ state, libraries, actions }) => {
   const [isMobile] = useMediaQuery("(max-width: 400px)");
   const pageData = state.source.get(state.router.link);
   const seoData = pageData.schemaData && pageData.schemaData;
-  console.log("chekcec", pageData);
+  //console.log("SneakersPage", pageData);
 
   // all custom state
 
@@ -271,6 +271,7 @@ const Productdetails = ({ state, libraries, actions }) => {
     <>
       {seoData !== undefined && seoData !== null ? (
         <Head>
+          <link rel="amphtml" href={`${seoData.meta.ogurl}amp`} />
           {seoData.meta && <title>{seoData.meta.title}</title>}
           <meta
             data-rh="true"
@@ -418,9 +419,9 @@ const Productdetails = ({ state, libraries, actions }) => {
 
       {/* {seoData === undefined && seoData === null ? <ErrorPage when={pageData.isError}/> : 'dsa'} */}
 
-     
+
       {/* {seoData.main.title == null ? <ErrorPage when={pageData.isError}/> :  */}
-      {seoData.main.title == null ? <ErrorPage when={pageData.isError}/> : 
+      {seoData.main.title == null ? <ErrorPage when={pageData.isError} /> :
         <Box mx={{ base: "6", md: "16", lg: "40" }}>
           {/* product image slider for mobile */}
           <Box textAlign="center" mt="5" mb="5">
@@ -821,9 +822,6 @@ const Productdetails = ({ state, libraries, actions }) => {
           </Box>
         </Box>
       }
-      
-
-
     </>
   );
 };

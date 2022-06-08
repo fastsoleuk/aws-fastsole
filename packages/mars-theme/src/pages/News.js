@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@chakra-ui/react";
-
 import {
   Stack,
   Circle,
@@ -12,7 +11,7 @@ import {
   Button,
   VStack,
 } from "@chakra-ui/react";
-import { loadable } from "frontity";
+import { loadable, Head } from "frontity";
 import { Image } from "@chakra-ui/image";
 import {
   FaArrowDown,
@@ -152,6 +151,9 @@ const News = ({ state, actions, libraries }) => {
 
   return (
     <>
+      <Head>
+        <link rel="amphtml" href={`${pageData.link}amp`} />
+      </Head>
       {/* {schemaData !== undefined && schemaData !== null ? (
         <Head>
           {schemaData.meta && <title>{schemaData.meta.title}</title>}

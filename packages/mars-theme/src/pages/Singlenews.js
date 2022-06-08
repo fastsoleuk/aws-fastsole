@@ -9,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/layout";
 import React, { useState, useEffect } from "react";
-import { css } from "frontity";
+import { css, Head } from "frontity";
 import { FaClock, FaTimesCircle } from "react-icons/fa";
 
 //import { Button } from "@chakra-ui/button";
@@ -61,6 +61,7 @@ import { BsFillTagsFill } from "react-icons/bs";
 const Singlenews = ({ state, actions, libraries }) => {
   const Html2React = libraries.html2react.Component;
   const data = state.source.get(state.router.link);
+
 
   const id = data.id;
   const type = data.type;
@@ -128,7 +129,7 @@ const Singlenews = ({ state, actions, libraries }) => {
   // console.log("tempcate", category);
 
   // author details api
-
+  const pageData = state.source.get(state.router.link);
   const fetchDataForAuthor = async () => {
     const response = await libraries.source.api.get({
       endpoint: `/wl/v1/author/${newsData.author}`,
@@ -146,6 +147,9 @@ const Singlenews = ({ state, actions, libraries }) => {
   // end of author details api
   return (
     <>
+      <Head>
+        <link rel="amphtml" href={`${pageData.link}amp`} />
+      </Head>
       <Box mx={{ base: "6", md: "16", lg: "40" }}>
         {/* menu bradecrum */}
         <Box textAlign="center" mt="10" mb="6">
@@ -264,7 +268,7 @@ const Singlenews = ({ state, actions, libraries }) => {
               <Text
                 color="#3E485D"
                 fontFamily="Open Sans"
-                className="product-details ALclass"
+                className="product-details news_details ALclass"
               >
                 {<Html2React html={newsData.content.rendered} />}
               </Text>
@@ -349,10 +353,10 @@ const Singlenews = ({ state, actions, libraries }) => {
                         px="3"
                         py="6px"
                         borderRadius="3px"
-                        // url={post_link}
-                        // onClick={() => {
-                        //   actions.router.set(post_link);
-                        // }}
+                      // url={post_link}
+                      // onClick={() => {
+                      //   actions.router.set(post_link);
+                      // }}
                       >
                         <Box display="flex" alignItems="center" mr="2">
                           <FaFacebookF size={14} color="#3b5998" />
@@ -377,7 +381,7 @@ const Singlenews = ({ state, actions, libraries }) => {
                           borderRadius="3px"
                         >
                           <Box display="flex" alignItems="center" mr="2">
-                            
+
                             <FaTwitter size={14} color="#1DA1F2" />
                           </Box>
 
@@ -402,7 +406,7 @@ const Singlenews = ({ state, actions, libraries }) => {
                           borderRadius="3px"
                         >
                           <Box display="flex" alignItems="center" mr="2">
-                            
+
                             <FaLinkedinIn size={14} color="#0A66C2" />
                           </Box>
 
@@ -486,8 +490,8 @@ const Singlenews = ({ state, actions, libraries }) => {
                           // mt={1}
                           display="block"
                           mb="1"
-                          // onClick={() => clickFunc(item.slug)}
-                          // pb="1"
+                        // onClick={() => clickFunc(item.slug)}
+                        // pb="1"
                         >
                           <Text
                             as="h3"
@@ -658,7 +662,7 @@ const Singlenews = ({ state, actions, libraries }) => {
                                 color={"#3E485D"}
                                 mb="1"
                                 noOfLines={2}
-                                // pb="1"
+                              // pb="1"
                               >
                                 {item.post_title}
                               </Text>
@@ -710,9 +714,9 @@ const Singlenews = ({ state, actions, libraries }) => {
               textAlign="center"
               py="auto"
               verticalAlign="sub"
-              // display={{ md: "block", base: "none" }}
+            // display={{ md: "block", base: "none" }}
             >
-              
+
               <Link
                 link="/brands"
                 css={css`
@@ -753,9 +757,9 @@ const Singlenews = ({ state, actions, libraries }) => {
               textAlign="center"
               py="auto"
               verticalAlign="sub"
-              // display={{ md: "block", base: "none" }}
+            // display={{ md: "block", base: "none" }}
             >
-              
+
               <Link
                 link="/brands"
                 css={css`
