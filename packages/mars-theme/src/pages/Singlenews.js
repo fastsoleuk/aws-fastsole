@@ -148,7 +148,7 @@ const Singlenews = ({ state, actions, libraries }) => {
   return (
     <>
       <Head>
-        <link rel="amphtml" href={`${pageData.link}amp`} />
+        <link rel="amphtml" href={`${state.source.url}${pageData.link}amp`} />
       </Head>
       <Box mx={{ base: "6", md: "16", lg: "40" }}>
         {/* menu bradecrum */}

@@ -152,7 +152,7 @@ const News = ({ state, actions, libraries }) => {
   return (
     <>
       <Head>
-        <link rel="amphtml" href={`${pageData.link}amp`} />
+        <link rel="amphtml" href={`${state.source.url}${pageData.link}amp`} />
       </Head>
       {/* {schemaData !== undefined && schemaData !== null ? (
         <Head>
