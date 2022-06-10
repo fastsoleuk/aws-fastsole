@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@chakra-ui/react";
+
 import {
   Stack,
   Circle,
@@ -121,6 +122,12 @@ const News = ({ state, actions, libraries }) => {
   };
 
   const pageData = state.source.get(state.router.link);
+  let newlink = '';
+  if(pageData.link.includes("/sneaker-news/page/")){
+    newlink = pageData.link.replace("/page", "\/amp\/page");
+  }else{
+    newlink = pageData.link + "amp";
+  }
   // const schemaData = pageData.schemaData && pageData.schemaData;
 
   //aureate_console.log("schemadataa", state.router.link);
@@ -151,9 +158,9 @@ const News = ({ state, actions, libraries }) => {
 
   return (
     <>
-      <Head>
-        <link rel="amphtml" href={`${state.source.url}${pageData.link}amp`} />
-      </Head>
+     <Head>
+      <link rel="amphtml" href={`${state.source.url}${newlink}`} />
+    </Head>
       {/* {schemaData !== undefined && schemaData !== null ? (
         <Head>
           {schemaData.meta && <title>{schemaData.meta.title}</title>}
