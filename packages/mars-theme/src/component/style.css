@@ -828,9 +828,18 @@ input.hiddentext:focus {
   form.search__form_main .search__wrap input {
     width: 164px;
   }
+  .search__wrap svg {
+    margin-top: 5px;
+  }
+  .search-top{
+    margin: -11px;
+  }
+  .search_pro_title{
+    padding-top: 15px;
+  }
 }
 @media screen and (max-width: 767px) {
-  .search-panel__content ul{
+  .search-panel__content ul {
     padding: 7px 0 0 0;
   }
   .mobile_head {
@@ -868,7 +877,7 @@ input.hiddentext:focus {
   .search__form_main {
     width: auto;
   }
-  .popup .content{
+  .popup .content {
     overflow: auto;
   }
   .relatedSearchData .search_pro_wrap {
@@ -885,37 +894,41 @@ input.hiddentext:focus {
     border-top: 0;
     border-radius: 8px;
     background: none;
-    padding:20px;
+    padding: 20px;
   }
-  .search__wrap .search_pro_price, .search__wrap .chakra_text_stock, .search__wrap .chakra_text_soon{
+  .search__wrap .search_pro_price,
+  .search__wrap .chakra_text_stock,
+  .search__wrap .chakra_text_soon {
     display: none;
   }
   .logo p {
     z-index: 0;
   }
-  .search-panel__suggestions > div{
+  .search-panel__suggestions > div {
     display: none;
   }
-  .search-panel__suggestions{
+  .search-panel__suggestions {
     flex-wrap: nowrap;
   }
   .search_imageWrapper {
-    margin-right: 0;}
+    margin-right: 0;
+  }
   .search_pro_title {
     padding-top: 0;
     font-size: 14px;
     line-height: 17px;
-}
-  .search_pro_image{
-min-width: 90px;
+  }
+  .search_pro_image {
+    min-width: 90px;
   }
   .contentRight {
     margin-left: 10px;
-}
+  }
   .search_image {
     max-height: 96px;
-    max-width: 90px;}
-  .popup-box .popup .close:nth-child(2)  {
+    max-width: 90px;
+  }
+  .popup-box .popup .close:nth-child(2) {
     top: 1px;
     right: 13px;
     font-weight: 500;
@@ -934,12 +947,12 @@ min-width: 90px;
   .search-panel__content {
     border-radius: 8px;
   }
- 
+
   .search__form_main_popup {
     top: 0;
     height: 100%;
     width: 100%;
-    padding:15px 0;
+    padding: 15px 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
     overflow: inherit;
