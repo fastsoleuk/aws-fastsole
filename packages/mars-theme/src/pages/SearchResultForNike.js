@@ -25,9 +25,10 @@ import {
   RangeSliderThumb,
   Wrap,
   WrapItem,
+  Link,
 } from "@chakra-ui/react";
 import { connect, Head } from "frontity";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaCheckCircle,
   FaChevronRight,
@@ -59,6 +60,11 @@ function SearchResultForNike({ state, actions, libraries }) {
   let apiSlug = finalSlug && finalSlug.split("+").join("-");
   let finalTitle = finalSlug && prodTitle.toUpperCase();
   console.log("product title =", finalSlug);
+
+  const ref = useRef(null);
+  useEffect(() => {
+    ref?.current?.focus?.();
+}, [ref]);
 
   return (
     <>
@@ -196,8 +202,8 @@ function SearchResultForNike({ state, actions, libraries }) {
             fontSize="xs"
             lineHeight="26px"
           >
-            Home
-            <Icon as={FaChevronRight} boxSize={2} mx={2} /> Nike
+            <Link to="/">Home</Link>
+            <Icon as={FaChevronRight} boxSize={2} mx={2} /> {finalTitle}
           </Text>
         </Stack>
 
@@ -213,10 +219,10 @@ function SearchResultForNike({ state, actions, libraries }) {
             fontSize="16px"
             fontFamily="inherit"
             mr={5}
-            fontSize="xs"
           >
             Related Search
           </Text>
+          <input type="text" ref={ref} className="hiddentext"/>
           <Wrap direction="row" ml="0px !important">
             {/* {brandList.map((data, index) => {
             return (
